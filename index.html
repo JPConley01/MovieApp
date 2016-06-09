@@ -18,7 +18,7 @@
         <title>My Movie Collection</title>
     </head>
 
-    <body class="container" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;" ng-controller="movieController as movie">
+    <body id="background" class="container" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;" ng-controller="movieController as movie">
         <h1 class="jumbotron text-center " ng-init="movie.initialize()">My Awesome Movie Collection</h1>
         <label>Add movies here:</label>
         <input id="new-movie" type="text" ng-model="movie.newItem.name" size="30" placeholder="What movie do you wish to add?"/>
