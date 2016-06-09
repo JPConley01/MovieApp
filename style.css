@@ -7032,3 +7032,15 @@ tbody > tr > td {
   background-repeat: no-repeat;
   min-height: 100vh;
 }
+
+#physical {
+  text-shadow: 0px 2px black;
+}
+
+#digital {
+  text-shadow: 0px 2px black;
+}
+
+#rows {
+  text-shadow: 0px 2px black;
+}
