@@ -7026,7 +7026,7 @@ tbody > tr > td {
 }
 
 #background {
-  background-image: url('/Users/JohnPaul/documents/MovieApp/movietheater.jpg');
+  background-image: url('https://github.com/JPConley01/MovieApp/blob/gh-pages/movietheater.jpg');
   background-size: cover;
   background-position: center;
 }
