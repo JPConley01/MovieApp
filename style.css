@@ -7029,4 +7029,6 @@ tbody > tr > td {
   background-image: url('http://sociorocketnewsen.files.wordpress.com/2013/10/st-8.jpg?w=1164&h=776');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
