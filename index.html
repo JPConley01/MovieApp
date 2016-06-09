@@ -24,20 +24,20 @@
         <input id="new-movie" type="text" ng-model="movie.newItem.name" size="30" placeholder="What movie do you wish to add?"/>
         <button type="button" ng-click="movie.addItem(movie.newItem)" name="button" class="btn btn-info ">Submit</button>
         <div class="checkbox">
-            <label>
+            <label id="physical">
                 <input type="checkbox" ng-model="movie.newItem.physical">
                 Physical Copy
             </label>
         </div>
         <div class="checkbox">
-            <label>
+            <label id="digital">
                 <input type="checkbox" ng-model="movie.newItem.digital">
                 Digital Copy
             </label>
         </div>
         <table class="table table-striped">
           <thead>
-            <tr>
+            <tr id="rows">
                 <th>
                     Name
                 </th>
