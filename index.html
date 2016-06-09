@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="movieList" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" type="text/css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+
+        <title>My Movie Collection</title>
+    </head>
+
+    <body class="container" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;" ng-controller="movieController as movie">
+        <h1 class="jumbotron text-center " ng-init="movie.initialize()">My Awesome Movie Collection</h1>
+        <label>Add movies here:</label>
+        <input id="new-movie" type="text" ng-model="movie.newItem.name" size="30" placeholder="What movie do you wish to add?"/>
+        <button type="button" ng-click="movie.addItem(movie.newItem)" name="button" class="btn btn-info ">Submit</button>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="movie.newItem.physical">
+                Physical Copy
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="movie.newItem.digital">
+                Digital Copy
+            </label>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Digital
+                </th>
+                <th>
+                    Physical
+                </th>
+                <th>
+                  Actions
+                </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in movie.items track by $index">
+                <td style="width:227px">
+                 <span ng-if="!item.editMode">{{item.name}}</span>
+                 <input ng-if="item.editMode" type="text" class="form-control input-sm" ng-model="item.name">
+                </td>
+                <td>
+                    <input type="checkbox" ng-disabled="!item.editMode" ng-model="item.digital" ng-change="movie.save()"/>
+                    Digital Copy
+                </td>
+                <td>
+                    <input type="checkbox" ng-disabled="!item.editMode" ng-model="item.physical" ng-change="movie.save()"/>
+                    Physical Copy
+                </td>
+                <td>
+                  <button type="button" ng-click="movie.toggleEditMode(item)" name="button" ng-class="{'btn-primary':!item.editMode,'btn-success':item.editMode}" class="btn btn-xs modifybtn">
+                    <span ng-if="!item.editMode">Edit</span>
+                    <span ng-if="item.editMode">Save</span>
+                  </button>
+
+                    <button type="button" ng-click="movie.deleteItem($index)" name="button" class="btn btn-danger btn-xs">Remove</button>
+
+                </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row"></div>
+
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+
+</html>
