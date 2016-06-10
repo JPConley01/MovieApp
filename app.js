@@ -15,15 +15,15 @@ function movieController() {
             localStorage.removeItem('items');
 
             movie.items = [{
-                "name": "Terminator 2",
+                "title": "Terminator 2",
                 "digital": true,
                 "physical": false
             }, {
-                "name": "Speed",
+                "title": "Speed",
                 "digital": false,
                 "physical": true
             }, {
-                "name": "The Matrix",
+                "title": "The Matrix",
                 "digital": true,
                 "physical": true
             }];
@@ -45,7 +45,7 @@ function movieController() {
 
     movie.itemCreate = function() {
         return {
-            "name": "",
+            "title": "",
             "digital": false,
             "physical": false
         };
