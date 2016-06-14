@@ -1,20 +1,13 @@
  [{
-    "name": "Terminator 2",
+    "title": "Terminator 2",
     "digital": true,
     "physical": false
 }, {
-    "name": "Speed",
+    "title": "Speed",
     "digital": false,
     "physical": true
 }, {
-    "name": "The Matrix",
+    "title": "The Matrix",
     "digital": true,
     "physical": true
 }];
-
-
-movie.deleteItem = function($index) {
-    console.log("Removing movie!");
-    movie.items = movie.items.splice($index, 1);
-};
-movie.save();
