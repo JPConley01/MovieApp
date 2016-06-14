@@ -21,8 +21,8 @@
     <body id="background" class="container" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;" ng-controller="movieController as movie">
         <h1 class="jumbotron text-center " ng-init="movie.initialize()">My Awesome Movie Collection</h1>
         <label>Add movies here:</label>
-        <input id="new-movie" type="text" ng-model="movie.newItem.title" size="30" placeholder="What movie do you wish to add?"/>
-        <button type="button" ng-click="movie.addItem(movie.newItem)" name="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Submit</button>
+        <input id="newMovieTitle" type="text" ng-model="movie.newItem.title" size="30" placeholder="What movie do you wish to add?"/>
+        <button type="button" ng-click="movie.getData()" name="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Submit</button>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -33,11 +33,11 @@
                         <h4 class="modal-title" id="myModalLabel">Search Results</h4>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <img src="{{movie.response.Poster}}" height="150px">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" ng-click="movie.addItem(movie.newItem)">Save changes</button>
                     </div>
                 </div>
             </div>
