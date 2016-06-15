@@ -53,7 +53,7 @@
             </thead>
             <tbody>
                   <tr ng-repeat="item in movie.items | orderBy:movie.sortType track by $index">
-                      <td><img ng-src="{{item.Poster}}" height="150px"></td>
+                      <td><img ng-src="http://img.omdbapi.com/?apikey=eba8f302&i={{item.imdbID}}" height="150px"></td>
                       <td>
                           <p>
                               <b>{{item.Title}}</b>
