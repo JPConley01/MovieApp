@@ -57,25 +57,40 @@
         </div>
         <table class="table table-striped">
             <thead>
-                <tr id="rows">
-                    <th>
-                        Title
-                    </th>
-                    <th>
-                        Digital
-                    </th>
-                    <th>
-                        Physical
-                    </th>
-                    <th>
-                        Actions
-                    </th>
+                <tr ng-repeat="item in movie.items track by $index">
+                    <td><img src="{{movie.response.Poster}}" height="150px"></td>
+                    <td>
+                        <p>
+                            <b>{{movie.items.Title}}</b>
+                            <span class="sub">
+                                <b>({{movie.items.Released}})</b>
+                                Metascore:
+                                <span class="label label-warning">{{movie.items.Metascore}}</span>
+                                IMDB Rating:
+                                <span class="label label-warning">{{movie.items.imdbRating}}</span>
+                            </span>
+                        </p>
+                        <p>
+                            <b>Rated:
+                                {{movie.items.Rated}}</b>
+                            |
+                            <span class="sub">Runtime:
+                                {{movie.items.Runtime}}</span>
+                        </p>
+                        <p>{{movie.items.Plot}}</p>
+                        <p>
+                            <span class="sub">Genre:
+                                {{movie.items.Genre}}
+                                | Actors:
+                                {{movie.items.Actors}}</span>
+                        </p>
+                    </td>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in movie.items track by $index">
                     <td style="width:227px">
-                        <span ng-if="!item.editMode">{{item.title}}</span>
+                        <span ng-if="!item.editMode">{{item.Title}}</span>
                         <input ng-if="item.editMode" type="text" class="form-control input-sm" ng-model="item.title">
                     </td>
                     <td>

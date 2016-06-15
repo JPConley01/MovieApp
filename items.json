@@ -1,0 +1,13 @@
+ [{
+    "title": "Terminator 2",
+    "digital": true,
+    "physical": false
+}, {
+    "title": "Speed",
+    "digital": false,
+    "physical": true
+}, {
+    "title": "The Matrix",
+    "digital": true,
+    "physical": true
+}];
