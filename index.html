@@ -57,32 +57,32 @@
         </div>
         <table class="table table-striped">
             <thead>
-                <tr ng-repeat="movie in hCtrl.movies track by $index">
-                    <td><img src="{{movie.Poster}}" height="150px"></td>
+                <tr ng-repeat="item in movie.items track by $index">
+                    <td><img src="{{movie.response.Poster}}" height="150px"></td>
                     <td>
                         <p>
-                            <b>{{movie.Title}}</b>
+                            <b>{{movie.items.Title}}</b>
                             <span class="sub">
-                                <b>({{movie.Released}})</b>
+                                <b>({{movie.items.Released}})</b>
                                 Metascore:
-                                <span class="label label-warning">{{movie.Metascore}}</span>
+                                <span class="label label-warning">{{movie.items.Metascore}}</span>
                                 IMDB Rating:
-                                <span class="label label-warning">{{movie.imdbRating}}</span>
+                                <span class="label label-warning">{{movie.items.imdbRating}}</span>
                             </span>
                         </p>
                         <p>
                             <b>Rated:
-                                {{movie.Rated}}</b>
+                                {{movie.items.Rated}}</b>
                             |
                             <span class="sub">Runtime:
-                                {{movie.Runtime}}</span>
+                                {{movie.items.Runtime}}</span>
                         </p>
-                        <p>{{movie.Plot}}</p>
+                        <p>{{movie.items.Plot}}</p>
                         <p>
                             <span class="sub">Genre:
-                                {{movie.Genre}}
+                                {{movie.items.Genre}}
                                 | Actors:
-                                {{movie.Actors}}</span>
+                                {{movie.items.Actors}}</span>
                         </p>
                     </td>
                 </tr>
