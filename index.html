@@ -52,7 +52,7 @@
             <thead>
             </thead>
             <tbody>
-                  <tr ng-repeat="item in movie.items | orderBy:movie.sortType">
+                  <tr ng-repeat="item in movie.items | orderBy:movie.sortType track by $index">
                       <td><img ng-src="{{item.Poster}}" height="150px"></td>
                       <td>
                           <p>
