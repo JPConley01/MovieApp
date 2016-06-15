@@ -1,14 +1,39 @@
 angular.module("movieList", [])
     .controller("movieController", ["$http", movieController]);
 
-
 function movieController($http) {
     var movie = this;
 
-    movie.save = function() {
-        localStorage.removeItem('items');
-        localStorage.setItem('items', JSON.stringify(movie.items));
+    movie.sortType = '';
+    movie.newMovie = {};
+    movie.dummy = {
+        Title: 0,
+        Year: 0,
+        Rated: 0,
+        Released: 0,
+        Runtime: 0,
+        Genre: 0,
+        Director: 0,
+        Writer: 0,
+        Actors: 0,
+        Plot: 0,
+        Language: 0,
+        Country: 0,
+        Awards: 0,
+        Poster: 0,
+        Metascore: 0,
+        imdbRating: 0,
+        imdbVotes: 0,
+        imdbID: 0,
+        Type: 0,
     };
+    movie.dummyKeys = Object.keys(movie.dummy);
+    // console.log(localStorage);
+    var localItems = localStorage.getItem('items');
+
+    if(localItems != null) {
+      movie.items = JSON.parse(localItems);
+    }
 
     if (!movie.items) {
         localStorage.removeItem('items');
@@ -57,7 +82,6 @@ function movieController($http) {
             "Type": "movie",
             "digital": true,
             "physical": false
-
         }, {
             "Title": "The Matrix",
             "Year": "1999",
@@ -80,60 +104,30 @@ function movieController($http) {
             "Type": "movie",
             "digital": true,
             "physical": false
-
         }];
 
         movie.save();
-
     }
-    // movie.initialize = function() {
-        console.log(localStorage);
-        movie.items = JSON.parse(localStorage.getItem('items'));
-        // TODO: if localStorage.getItems returns undefined DO NOT parse
 
-        movie.itemCreate = function(data) {
-            movie.newMovie = {
-                Title:data.Title,
-                Year:data.Year ,
-                Rated:data.Rated,
-                Released:data.Released ,
-                Runtime:data.Runtime ,
-                Genre:data.Genre ,
-                Director:data.Director ,
-                Writer:data.Writer ,
-                Actors:data.Actors ,
-                Plot:data.Plot ,
-                Language:data.Language ,
-                Country:data.Country ,
-                Awards:data.Awards ,
-                Poster:data.Poster ,
-                Metascore:data.Metascore ,
-                imdbRating:data.imdbRating ,
-                imdbVotes:data.imdbVotes ,
-                imdbID:data.imdbID ,
-                Type:data.Type ,
-                digital: true,
-                physical: false
-            };
+    movie.save = function() {
+        localStorage.removeItem('items');
+        localStorage.setItem('items', JSON.stringify(movie.items));
+    };
 
-            movie.addItem(movie.newMovie);
-        };
+    movie.itemCreate = function(data) {
 
-        movie.getData = function() {
-            console.log("in getData");
-            var title = document.getElementById('newMovieTitle').value.replace(' ', '+');
-            console.log(title);
-            $http({
-                method: "GET",
-                url: "http://www.omdbapi.com/?t=" + title + "&y=&plot=short&r=json"
-            }).then(function(response) {
-                movie.response = response.data;
-                movie.itemCreate(movie.response);
-                console.log("Getting Data", movie.response);
+    };
 
-            });
-        };
-    // };
+    movie.getMovie = function(title) {
+        $http({
+            method: "GET",
+            url: "http://www.omdbapi.com/?t=" + title + "&y=&plot=short&r=json"
+        }).then(function(response) {
+            console.log('getMovie result: ', response.data);
+
+            movie.newMovie = response.data;
+        });
+    };
 
     movie.toggleEditMode = function(item) {
         item.editMode = !item.editMode;
@@ -144,23 +138,13 @@ function movieController($http) {
 
     };
 
-
-
-
-
-
-
     movie.addItem = function(newMovie) {
-
-        console.log("Adding movie!", movie.newItem, movie.items);
-        movie.items.push(movie.newItem);
-        console.log(movie.items);
-        movie.newItem = movie.itemCreate();
+        console.log("Adding movie!", newMovie, movie.items);
+        movie.items.push(newMovie);
+        // console.log(movie.items);
 
         movie.save();
-        movie.newItem = movie.itemCreate();
     };
-
 
     movie.deleteItem = function($index) {
         console.log("Removing movie!");

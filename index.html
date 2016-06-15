@@ -19,10 +19,14 @@
     </head>
 
     <body id="background" class="container" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;" ng-controller="movieController as movie">
-        <h1 class="jumbotron text-center " ng-init="movie.initialize()">My Awesome Movie Collection</h1>
+        <h1 class="jumbotron text-center">My Awesome Movie Collection</h1>
         <label>Add movies here:</label>
-        <input id="newMovieTitle" type="text" ng-model="movie.newItem.title" size="30" placeholder="What movie do you wish to add?"/>
-        <button type="button" ng-click="movie.getData()" name="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Submit</button>
+        <input id="newMovieTitle" type="text" ng-model="movie.newItem.title" size="30" placeholder="Title"/>
+        <button type="button" ng-click="movie.getMovie(movie.newItem.title)" name="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Submit</button>
+        <label>Sort by:</label>
+        <select ng-model="movie.sortType">
+          <option ng-repeat="key in movie.dummyKeys" value="{{key}}">{{key}}</option>
+        </select>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -33,84 +37,47 @@
                         <h4 class="modal-title" id="myModalLabel">Search Results</h4>
                     </div>
                     <div class="modal-body">
-                        <img src="{{movie.response.Poster}}" height="150px">
+                        <img ng-src="{{movie.newMovie.Poster}}" height="150px">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" ng-click="movie.addItem(movie.newItem)">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="movie.addItem(movie.newMovie);">Add Movie</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="checkbox">
-            <label id="physical">
-                <input type="checkbox" ng-model="movie.newItem.physical">
-                Physical Copy
-            </label>
-        </div>
-        <div class="checkbox">
-            <label id="digital">
-                <input type="checkbox" ng-model="movie.newItem.digital">
-                Digital Copy
-            </label>
-        </div>
+
         <table class="table table-striped">
             <thead>
-                <tr ng-repeat="item in movie.items track by $index">
-                    <td><img src="{{movie.response.Poster}}" height="150px"></td>
-                    <td>
-                        <p>
-                            <b>{{movie.items.Title}}</b>
-                            <span class="sub">
-                                <b>({{movie.items.Released}})</b>
-                                Metascore:
-                                <span class="label label-warning">{{movie.items.Metascore}}</span>
-                                IMDB Rating:
-                                <span class="label label-warning">{{movie.items.imdbRating}}</span>
-                            </span>
-                        </p>
-                        <p>
-                            <b>Rated:
-                                {{movie.items.Rated}}</b>
-                            |
-                            <span class="sub">Runtime:
-                                {{movie.items.Runtime}}</span>
-                        </p>
-                        <p>{{movie.items.Plot}}</p>
-                        <p>
-                            <span class="sub">Genre:
-                                {{movie.items.Genre}}
-                                | Actors:
-                                {{movie.items.Actors}}</span>
-                        </p>
-                    </td>
-                </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in movie.items track by $index">
-                    <td style="width:227px">
-                        <span ng-if="!item.editMode">{{item.Title}}</span>
-                        <input ng-if="item.editMode" type="text" class="form-control input-sm" ng-model="item.title">
-                    </td>
-                    <td>
-                        <input type="checkbox" ng-disabled="!item.editMode" ng-model="item.digital" ng-change="movie.save()"/>
-                        Digital Copy
-                    </td>
-                    <td>
-                        <input type="checkbox" ng-disabled="!item.editMode" ng-model="item.physical" ng-change="movie.save()"/>
-                        Physical Copy
-                    </td>
-                    <td>
-                        <button type="button" ng-click="movie.toggleEditMode(item)" name="button" ng-class="{'btn-primary':!item.editMode,'btn-success':item.editMode}" class="btn btn-xs modifybtn">
-                            <span ng-if="!item.editMode">Edit</span>
-                            <span ng-if="item.editMode">Save</span>
-                        </button>
-
+                  <tr ng-repeat="item in movie.items | orderBy:movie.sortType">
+                      <td><img ng-src="{{item.Poster}}" height="150px"></td>
+                      <td>
+                          <p>
+                              <b>{{item.Title}}</b>
+                              <span class="sub">
+                                  <b>({{item.Released}})</b>
+                                  Metascore:
+                                  <span class="label label-warning">{{item.Metascore}}</span>
+                                  IMDB Rating:
+                                  <span class="label label-warning">{{item.imdbRating}}</span>
+                              </span>
+                          </p>
+                          <p>
+                              <b>Rated: {{item.Rated}}</b> |
+                              <span class="sub">Runtime: {{item.Runtime}}</span>
+                          </p>
+                          <p>{{item.Plot}}</p>
+                          <p class="sub">
+                              Genre: {{item.Genre}} | Actors: {{item.Actors}}
+                          </p>
+                      </td>
+                      <td>
                         <button type="button" ng-click="movie.deleteItem($index)" name="button" class="btn btn-danger btn-xs">Remove</button>
-
-                    </td>
-                </tr>
+                      </td>
+                  </tr>
             </tbody>
         </table>
         <div class="row"></div>
