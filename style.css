@@ -7019,7 +7019,7 @@ thead > tr {
 tbody > tr > td {
   line-height: 30px !important;
   background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 10px 5px 5px #050505;
 }
 
 .modifybtn {
@@ -7041,17 +7041,17 @@ tbody > tr > td {
 .modal-content {
   line-height: 30px !important;
   background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 10px 5px 5px #050505;
 
 }
 
 .modal-header {
   background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 10px 5px 5px #050505;
 
 }
 .modal-footer {
   background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 10px 5px 5px black;
+  box-shadow: 10px 5px 5px #050505;
 
 }
