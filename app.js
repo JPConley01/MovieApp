@@ -31,8 +31,8 @@ function movieController($http) {
     // console.log(localStorage);
     var localItems = localStorage.getItem('items');
 
-    if(localItems != null) {
-      movie.items = JSON.parse(localItems);
+    if (localItems != null) {
+        movie.items = JSON.parse(localItems);
     }
 
     if (!movie.items) {
@@ -151,5 +151,7 @@ function movieController($http) {
         movie.items.splice($index, 1);
         movie.save();
     };
+
+
 
 }
