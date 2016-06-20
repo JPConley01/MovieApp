@@ -106,7 +106,7 @@ function movieController($http) {
             "physical": false
         }];
 
-        movie.save();
+        // movie.save();
     }
 
     movie.save = function() {
