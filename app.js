@@ -106,7 +106,7 @@ function movieController($http) {
             "physical": false
         }];
 
-        // movie.save();
+        // movie.save(); ToDo: figure out why this is here.
     }
 
     movie.save = function() {
@@ -146,9 +146,12 @@ function movieController($http) {
         movie.save();
     };
 
-    movie.deleteItem = function($index) {
+    movie.deleteItem = function(item) {
         console.log("Removing movie!");
-        movie.items.splice($index, 1);
+        console.log(movie);
+        var index = movie.items.indexOf(item);
+        console.log(index);
+        movie.items.splice(index, 1);
         movie.save();
     };
 
