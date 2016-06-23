@@ -21,12 +21,23 @@
 
     <body id="background" class="container" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;" ng-controller="movieController as movie">
         <h1 class="jumbotron text-center">My Awesome Movie Collection</h1>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Other Collections
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    Video Games
+                </ul>
+            </li>
+        </ul>
         <label>Add movies here:</label>
         <input id="newMovieTitle" type="text" ng-model="movie.newItem.title" size="30" placeholder="Title"/>
         <button type="button" ng-click="movie.getMovie(movie.newItem.title); " name="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Submit</button>
         <label>Sort by:</label>
         <select ng-model="movie.sortType">
-          <option ng-repeat="key in movie.dummyKeys" value="{{key}}">{{key}}</option>
+            <option ng-repeat="key in movie.dummyKeys" value="{{key}}">{{key}}</option>
         </select>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -48,37 +59,41 @@
             </div>
         </div>
 
-
         <table class="table table-striped">
-            <thead>
-            </thead>
+            <thead></thead>
             <tbody>
-                  <tr ng-repeat="item in movie.items | orderBy:movie.sortType track by $index">
-                      <td><img ng-src="http://img.omdbapi.com/?apikey=eba8f302&i={{item.imdbID}}" height="150px"></td>
-                      <td>
-                          <p>
-                              <b>{{item.Title}}</b>
-                              <span class="sub">
-                                  <b>({{item.Released}})</b>
-                                  Metascore:
-                                  <span class="label label-warning">{{item.Metascore}}</span>
-                                  IMDB Rating:
-                                  <span class="label label-warning">{{item.imdbRating}}</span>
-                              </span>
-                          </p>
-                          <p>
-                              <b>Rated: {{item.Rated}}</b> |
-                              <span class="sub">Runtime: {{item.Runtime}}</span>
-                          </p>
-                          <p>{{item.Plot}}</p>
-                          <p class="sub">
-                              Genre: {{item.Genre}} | Actors: {{item.Actors}}
-                          </p>
-                      </td>
-                      <td>
+                <tr ng-repeat="item in movie.items | orderBy:movie.sortType track by $index">
+                    <td><img ng-src="http://img.omdbapi.com/?apikey=eba8f302&i={{item.imdbID}}" height="150px"></td>
+                    <td>
+                        <p>
+                            <b>{{item.Title}}</b>
+                            <span class="sub">
+                                <b>({{item.Released}})</b>
+                                Metascore:
+                                <span class="label label-warning">{{item.Metascore}}</span>
+                                IMDB Rating:
+                                <span class="label label-warning">{{item.imdbRating}}</span>
+                            </span>
+                        </p>
+                        <p>
+                            <b>Rated:
+                                {{item.Rated}}</b>
+                            |
+                            <span class="sub">Runtime:
+                                {{item.Runtime}}</span>
+                        </p>
+                        <p>{{item.Plot}}</p>
+                        <p class="sub">
+                            Genre:
+                            {{item.Genre}}
+                            | Actors:
+                            {{item.Actors}}
+                        </p>
+                    </td>
+                    <td>
                         <button type="button" ng-click="movie.deleteItem(item)" name="button" class="btn btn-danger btn-xs">Remove</button>
-                      </td>
-                  </tr>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <div class="row"></div>
