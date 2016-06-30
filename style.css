@@ -51,7 +51,7 @@ template {
   display: none;
 }
 a {
-  background-color: black;
+  background-color: transparent;
 }
 a:active,
 a:hover {
@@ -3538,7 +3538,7 @@ tbody.collapse.in {
   list-style: none;
   font-size: 15px;
   text-align: left;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #4e5d6c;
   border: 1px solid transparent;
   border-radius: 0;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -3994,14 +3994,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #4e5d6c;
 }
 .nav > li.disabled > a {
-  color: rgba(0, 0, 0, 0.8);
+  color: #4e5d6c;
 }
 .nav > li.disabled > a:hover,
 .nav > li.disabled > a:focus {
-  color: rgba(0, 0, 0, 0.8);
+  color: #4e5d6c;
   text-decoration: none;
   background-color: transparent;
   cursor: not-allowed;
@@ -4009,7 +4009,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #4e5d6c;
   border-color: #df691a;
 }
 .nav .nav-divider {
@@ -4566,7 +4566,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ebebeb;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #485563;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
@@ -4668,7 +4668,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ebebeb;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #c85e17;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover,
@@ -7053,8 +7053,4 @@ tbody > tr > td {
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 10px 5px 5px #050505;
 
-}
-
-a {
-  background-color: rgba(0, 0, 0, 0.8);
 }
