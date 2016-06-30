@@ -51,7 +51,7 @@ template {
   display: none;
 }
 a {
-  background-color: transparent;
+  background-color: black;
 }
 a:active,
 a:hover {
@@ -3568,7 +3568,6 @@ tbody.collapse.in {
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   text-decoration: none;
-  color: #ebebeb;
   background-color: #485563;
 }
 .dropdown-menu > .active > a,
@@ -7054,4 +7053,8 @@ tbody > tr > td {
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 10px 5px 5px #050505;
 
+}
+
+a {
+  background-color: rgba(0, 0, 0, 0.8);
 }

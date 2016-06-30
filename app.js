@@ -155,6 +155,4 @@ function movieController($http) {
         movie.save();
     };
 
-
-
 }
