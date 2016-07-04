@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="vgameList" lang="en">
+<html ng-app="bgameList" lang="en">
 
     <head>
         <meta charset="utf-8">
@@ -19,9 +19,68 @@
         <title>My Board Game Collection</title>
     </head>
 
-    <body>
-        <h1 class="jumbotron text-center">My Awesome Board Game Collection</h1>
-        <script type="text/javascript" src="app.js"></script>
+    <body id="bgames-background" class="container" ng-controller="bgameController as bgame">
+      <h1 class="jumbotron text-center">My Awesome Board Game Collection</h1>
+      <ul class="nav nav-tabs">
+          <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  Other Collections
+                  <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                  <li id="dropdown-select"><a href="index.html">Movies</a></li>
+                  <li><a href="vgames.html">Video Games</a></li>
+              </ul>
+          </li>
+      </ul>
+      <form>
+        <label id="rows">Add board games here:</label>
+        <input id="newbgameTitle" type="text" ng-model="bgame.newBgame.name" size="30" placeholder="Name" autofocus autocomplete="off"/>
+        <button id="submitButton" type="submit" ng-click="bgame.getBgames(bgame.newBgame.name); " name="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Submit</button>
+      </form>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      <h4 class="modal-title" id="myModalLabel">Search Results</h4>
+                  </div>
+                  <div class="modal-body">
+                    <img ng-src="{{bgame.newBgame.Image}}" height="150px">
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="bgame.addItem(bgame.newBgame)">Add Game</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <table class="table table-striped">
+          <thead></thead>
+          <tbody>
+              <tr ng-repeat="item in bgame.items | orderBy:bgame.sortType track by $index">
+                  <td>
+                    <img ng-src="{{item.Image}}" height="150px">
+                  </td>
+                  <td>
+                      <p>
+                          <b>{{item.Name.Value}}</b>
+                          <span class="sub">
+                              <b>({{item.Description}})</b>
+                          </span>
+                      </p>
+                  </td>
+                  <td>
+                      <button type="button" ng-click="bgame.deleteItem(item)" name="button" class="btn btn-danger btn-xs">Remove</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <script type="text/javascript" src="saveService.js"></script>
+        <script type="text/javascript" src="bgames.js"></script>
+
     </body>
 
 </html>

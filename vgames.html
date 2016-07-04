@@ -19,9 +19,68 @@
         <title>My Video Game Collection</title>
     </head>
 
-    <body>
+    <body id="vgames-background" class="container" ng-controller="vgameController as vgame">
+      <h1 class="jumbotron text-center">My Awesome Video Game Collection</h1>
+      <ul class="nav nav-tabs">
+          <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  Other Collections
+                  <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                  <li id="dropdown-select"><a href="index.html">Movies</a></li>
+                  <li><a href="bgames.html">Board Games</a></li>
+              </ul>
+          </li>
+      </ul>
+      <form>
+        <label id="rows">Add video games here:</label>
+        <input id="newVgameTitle" type="text" ng-model="vgame.newVgame.name" size="30" placeholder="Name" autofocus autocomplete="off"/>
+        <button id="submitButton" type="submit" ng-click="vgame.getVgames(vgame.newVgame.name); " name="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Submit</button>
+      </form>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      <h4 class="modal-title" id="myModalLabel">Search Results</h4>
+                  </div>
+                  <div class="modal-body">
+                    <img ng-src="{{vgame.newVgame.Image}}" height="150px">
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vgame.addItem(vgame.newVgame)">Add Game</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <table class="table table-striped">
+          <thead></thead>
+          <tbody>
+              <tr ng-repeat="item in vgame.items | orderBy:vgame.sortType track by $index">
+                  <td>
+                    <img ng-src="{{item.Image}}" height="150px">
+                  </td>
+                  <td>
+                      <p>
+                          <b>{{item.Name.Value}}</b>
+                          <span class="sub">
+                              <b>({{item.Description}})</b>
+                          </span>
+                      </p>
+                  </td>
+                  <td>
+                      <button type="button" ng-click="vgame.deleteItem(item)" name="button" class="btn btn-danger btn-xs">Remove</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <script type="text/javascript" src="saveService.js"></script>
+        <script type="text/javascript" src="vgames.js"></script>
 
-        <script type="text/javascript" src="app.js"></script>
     </body>
 
 </html>

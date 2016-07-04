@@ -3538,7 +3538,7 @@ tbody.collapse.in {
   list-style: none;
   font-size: 15px;
   text-align: left;
-  background-color: #4e5d6c;
+  background-color: black;
   border: 1px solid transparent;
   border-radius: 0;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -3994,7 +3994,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #4e5d6c;
+  background-color: black;
 }
 .nav > li.disabled > a {
   color: #4e5d6c;
@@ -4009,7 +4009,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #4e5d6c;
+  background-color: black;
   border-color: #df691a;
 }
 .nav .nav-divider {
@@ -7025,7 +7025,7 @@ tbody > tr > td {
   min-width: 37px;
 }
 
-#background {
+#movie-background {
   background-image: url('http://sociorocketnewsen.files.wordpress.com/2013/10/st-8.jpg?w=1164&h=776');
   background-size: cover !important;
   background-position: center;
@@ -7053,4 +7053,20 @@ tbody > tr > td {
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 10px 5px 5px #050505;
 
+}
+
+#vgames-background {
+  background-image: url('http://www.allgeektome.net/wp-content/uploads/2015/02/Strong-Video-Game-Hall-of-Fame.jpg');
+  background-size: cover !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+#bgames-background {
+  background-image: url('http://3.bp.blogspot.com/-evRrKgllraY/U58ILUZiCbI/AAAAAAAACEs/ow1proUoDvE/s1600/Kingmakers-Board-Game-Parlour-3.jpg');
+  background-size: cover !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
