@@ -7055,14 +7055,21 @@ tbody > tr > td {
 }
 
 #vgames-background {
-  background-image: url('http://1.bp.blogspot.com/-WGhBed80BjU/VDVj-KB8_aI/AAAAAAAAGjc/sMAZ1wdCvDk/s1600/dark-textile-background.jpg');
+  background-image: url('https://cdn.welovesolo.com/wp-content/uploads/2014/12/p16of4lqkpovl1o2l1ecbbh814s9-details.jpg');
   background-position: center;
   background-repeat: repeat;
   min-height: 100vh;
 }
 
 #bgames-background {
-  background-image: url('http://orig06.deviantart.net/a380/f/2011/167/4/8/almacon_2012_background_by_sakurirainne-d3j3s4i.png');
+  background-image: url('https://cdn.welovesolo.com/wp-content/uploads/2014/12/p16of4lqkpovl1o2l1ecbbh814s9-details.jpg');
+  background-position: center;
+  background-repeat: repeat;
+  min-height: 100vh;
+}
+
+#login-background {
+  background-image: url('https://cdn.welovesolo.com/wp-content/uploads/2014/12/p16of4lqkpovl1o2l1ecbbh814s9-details.jpg');
   background-position: center;
   background-repeat: repeat;
   min-height: 100vh;
