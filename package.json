@@ -1,0 +1,30 @@
+{
+  "name": "movieapp",
+  "version": "0.5.5",
+  "description": "Collections app",
+  "main": "auth.js",
+  "dependencies": {
+    "angular-ui-keypress": "^0.0.1",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "mongoose": "^4.5.3",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPConley01/MovieApp.git"
+  },
+  "author": "JPC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JPConley01/MovieApp/issues"
+  },
+  "homepage": "https://github.com/JPConley01/MovieApp#readme"
+}

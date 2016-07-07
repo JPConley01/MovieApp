@@ -13,9 +13,8 @@
         <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet" type="text/css">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../css/style.css">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
-        <script type="text/javascript" src="node_modules/angular-ui-keypress/modules/keypress/keypress.js"></script>
         <title>My Board Game Collection</title>
     </head>
 
@@ -28,8 +27,8 @@
                   <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                  <li id="dropdown-select"><a href="index.html">Movies</a></li>
-                  <li><a href="vgames.html">Video Games</a></li>
+                  <li id="dropdown-select"><a href="/html/movies.html">Movies</a></li>
+                  <li><a href="/html/vgames.html">Video Games</a></li>
               </ul>
           </li>
       </ul>
@@ -67,8 +66,8 @@
                   <td>
                       <p>
                           <b>{{item.Name.Value}}</b>
-                          <span class="sub">
-                              <b>({{item.Description}})</b>
+                          <span id="desc" class="sub">
+                              <b >({{item.Description}})</b>
                           </span>
                       </p>
                   </td>
@@ -78,8 +77,8 @@
               </tr>
           </tbody>
       </table>
-      <script type="text/javascript" src="saveService.js"></script>
-        <script type="text/javascript" src="bgames.js"></script>
+      <script type="text/javascript" src="../js/saveService.js"></script>
+        <script type="text/javascript" src="../js/bgames.js"></script>
 
     </body>
 

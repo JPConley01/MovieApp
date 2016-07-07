@@ -27,6 +27,7 @@ function bgameController($http, SaveService) {
     };
 
     bgames.itemCreate = function(data) {
+      
 
     };
 
@@ -36,11 +37,11 @@ function bgameController($http, SaveService) {
 
     bgames.addItem = function(newBgame) {
         SaveService.addItem(newBgame, bgames.items, "bgames");
+
     };
 
     bgames.deleteItem = function(item) {
         SaveService.deleteItem(item, bgames.items, "bgames");
     };
-
 
 }

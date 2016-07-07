@@ -51,7 +51,7 @@ template {
   display: none;
 }
 a {
-  background-color: transparent;
+  background-color: black;
 }
 a:active,
 a:hover {
@@ -7026,10 +7026,9 @@ tbody > tr > td {
 }
 
 #movie-background {
-  background-image: url('http://sociorocketnewsen.files.wordpress.com/2013/10/st-8.jpg?w=1164&h=776');
-  background-size: cover !important;
+  background-image: url('https://cdn.welovesolo.com/wp-content/uploads/2014/12/p16of4lqkpovl1o2l1ecbbh814s9-details.jpg');
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   min-height: 100vh;
 }
 
@@ -7056,17 +7055,15 @@ tbody > tr > td {
 }
 
 #vgames-background {
-  background-image: url('http://www.allgeektome.net/wp-content/uploads/2015/02/Strong-Video-Game-Hall-of-Fame.jpg');
-  background-size: cover !important;
+  background-image: url('http://1.bp.blogspot.com/-WGhBed80BjU/VDVj-KB8_aI/AAAAAAAAGjc/sMAZ1wdCvDk/s1600/dark-textile-background.jpg');
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   min-height: 100vh;
 }
 
 #bgames-background {
-  background-image: url('http://3.bp.blogspot.com/-evRrKgllraY/U58ILUZiCbI/AAAAAAAACEs/ow1proUoDvE/s1600/Kingmakers-Board-Game-Parlour-3.jpg');
-  background-size: cover !important;
+  background-image: url('http://orig06.deviantart.net/a380/f/2011/167/4/8/almacon_2012_background_by_sakurirainne-d3j3s4i.png');
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   min-height: 100vh;
 }
