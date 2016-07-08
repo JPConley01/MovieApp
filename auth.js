@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
+var https = require('https');
+var fs = require('fs');
 
 /** Express Session Setup **/
 
