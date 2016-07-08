@@ -5,8 +5,8 @@ app.use(express.static(__dirname + '/public'));
 var https = require('https');
 var fs = require('fs');
 var options = {
-   key  : fs.readFileSync('server.key'),
-   cert : fs.readFileSync('server.crt')
+   key  : fs.readFileSync('/etc/letsencrypt/keys/0000_key-certbot.pem'),
+   cert : fs.readFileSync('/etc/letsencrypt/csr/0001_csr-certbot.pem')
 };
 
 /** Express Session Setup **/
