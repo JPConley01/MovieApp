@@ -4,6 +4,10 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 var https = require('https');
 var fs = require('fs');
+var options = {
+   key  : fs.readFileSync('server.key'),
+   cert : fs.readFileSync('server.crt')
+};
 
 /** Express Session Setup **/
 
@@ -194,3 +198,7 @@ app.use(function(req, res){
 });
 
 app.listen(process.env.PORT || 80);
+
+https.createServer(options, app).listen(443, function () {
+   console.log('Started!');
+});
