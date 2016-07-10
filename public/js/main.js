@@ -33,8 +33,8 @@ angular.module('app')
                 data   : $scope.loginForm
             }).then(function(returnData){
 							console.log("Return Data", returnData);
-                // if ( returnData.data.success ) {console.log("Here success"); window.location.href="/movies" }
-                // else { console.log(returnData)}
+                if ( returnData.data.success ) {console.log("Here success"); window.location.href="/movies" }
+                else { console.log(returnData)}
             })
         }
 
