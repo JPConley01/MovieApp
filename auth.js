@@ -89,7 +89,6 @@ passport.use(new LocalStrategy(
 /** Middleware **/
 app.isAuthenticated = function(req, res, next){
     // If the current user is logged in...
-    console.log(req);
     if(req.isAuthenticated()){
     // Middleware allows the execution chain to continue.
         return next();
@@ -173,7 +172,7 @@ app.post('/login', function(req, res, next){
         if (err) { return next(err); }
         if (!user) { return res.send({error : 'something went wrong :('}); }
         req.logIn(user, function(err) {
-          console.log("Hello req.login", err);
+          // console.log("Hello req.login", err);
             if (err) { return next(err); }
             return res.send({success:'success'});
         });
@@ -202,13 +201,17 @@ app.post('/user', app.isAuthenticated, function(req, res) {
     bcollection: req.body.bcollection
   });
 
+  console.log(user);
+
   user.save(function(err, savedData) {
     if(err) {
-      return User.create(user, function(error, created) {
-        // console.log('new record created, ', created);
+      User.create(user, function(error, created) {
+        if(error) res.json({error: 'error error creating'});
+        res.json(created);
       });
+    } else {
+      res.json(savedData);
     }
-    // return console.log('record saved', savedData);
   });
 });
 
