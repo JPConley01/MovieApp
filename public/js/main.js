@@ -1,7 +1,17 @@
-angular.module('app', [])
+angular.module('app', ['collectionHelpers'])
 
 angular.module('app')
-	.controller('mainController', ['$scope', '$http', function($scope, $http){
+	.controller('mainController', ['$scope', '$http', 'SaveService', function($scope, $http, SaveService){
+
+			$scope.loadUser = function() {
+				SaveService.load()
+					.then(function(response) {
+						console.log(response);
+
+						var user = response.data;
+						console.log(user);
+					})
+			}
 
         $scope.signup = function(){
             $http({
@@ -19,12 +29,12 @@ angular.module('app')
 
             $http({
                 method : 'POST',
-                url    : '/login',
+                url    : 'https://allthethings.site/html/' + 'login',
                 data   : $scope.loginForm
             }).then(function(returnData){
 							console.log("Return Data", returnData);
-                if ( returnData.data.success ) {console.log("Here success"); window.location.href="/movies" }
-                else { console.log(returnData)}
+                // if ( returnData.data.success ) {console.log("Here success"); window.location.href="/movies" }
+                // else { console.log(returnData)}
             })
         }
 
