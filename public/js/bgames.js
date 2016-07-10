@@ -18,7 +18,7 @@ function bgameController($http, SaveService) {
 
     bgames.getBgames = function(name) {
         console.log("here");
-        $http.get("http://bgg-wrapper.azurewebsites.net/api/thing?query=" + name + "&exact=1").then(function(response) {
+        $http.get("https://bgg-wrapper.azurewebsites.net/api/thing?query=" + name + "&exact=1").then(function(response) {
             console.log('getBgames result: ', response.data);
 
             var results = response.data.Items;
@@ -26,7 +26,7 @@ function bgameController($http, SaveService) {
                 return result.Type === "boardgame";
             })[0];
 
-            $http.get("http://bgg-wrapper.azurewebsites.net/api/thing?id=" + result.Id)
+            $http.get("https://bgg-wrapper.azurewebsites.net/api/thing?id=" + result.Id)
                 .then(function(response) {
                     bgames.newBgame = response.data;
                     console.log(bgames.newBgame);

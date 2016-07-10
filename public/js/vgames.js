@@ -12,14 +12,14 @@ function vgameController($http, SaveService) {
             .then(function(response) {
                 vgame.user = response.data;
 
-                vgame.items = vgames.user.bcollection;
+                vgame.items = vgame.user.vcollection;
             });
     };
 
 
     vgame.getVgames = function(name) {
         console.log("here");
-        $http.get("http://bgg-wrapper.azurewebsites.net/api/thing?query=" + name + "&exact=1").then(function(response) {
+        $http.get("https://bgg-wrapper.azurewebsites.net/api/thing?query=" + name + "&exact=1").then(function(response) {
             console.log('getVgames result: ', response.data);
 
             var results = response.data.Items;
@@ -27,7 +27,7 @@ function vgameController($http, SaveService) {
                 return result.Type === "videogame";
             })[0];
 
-            $http.get("http://bgg-wrapper.azurewebsites.net/api/thing?id=" + result.Id)
+            $http.get("https://bgg-wrapper.azurewebsites.net/api/thing?id=" + result.Id)
                 .then(function(response) {
                     vgame.newVgame = response.data;
                     console.log(vgame.newVgame);
