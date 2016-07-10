@@ -193,25 +193,18 @@ app.get('/api/me', app.isAuthenticatedAjax, function(req, res){
 });
 
 app.post('/user', app.isAuthenticated, function(req, res) {
-  var user = new User({
-    username: req.body.username,
-    password: req.body.password,
-    mcollection: req.body.mcollection,
-    vcollection: req.body.vcollection,
-    bcollection: req.body.bcollection
-  });
+  User.findById(req.body._id, function(err, user) {
+    // TODO: possibly auto-map this (i.e. Object.keys(user).blahblahblahblah)
+    user.username = req.body.username;
+    user.password = req.body.password;
+    user.mcollection = req.body.mcollection;
+    user.vcollection = req.body.vcollection;
+    user.bcollection = req.body.bcollection;
 
-  console.log(user);
-
-  user.save(function(err, savedData) {
-    if(err) {
-      User.create(user, function(error, created) {
-        if(error) res.json({error: 'error error creating'});
-        res.json(created);
-      });
-    } else {
-      res.json(savedData);
-    }
+    user.save(function(err, savedData) {
+      if(err) res.json({ error: 'error when saving' });
+      res.json({status: 200});
+    });
   });
 });
 
