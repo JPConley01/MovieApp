@@ -35,9 +35,12 @@ function movieController($http, SaveService) {
     movie.init = function() {
       SaveService.load()
         .then(function(response) {
+          console.log(response);
             movie.user = response.data;
 
-            movie.items = movie.user.bcollection;
+            console.log(movie.user);
+
+            movie.items = movie.user.mcollection;
         });
     };
 
