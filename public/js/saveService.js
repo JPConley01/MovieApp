@@ -5,46 +5,29 @@ angular.module("collectionHelpers", [])
         return {
             load: function() {
               var username = localStorage.getItem('currentUser');
-              console.log(username);
 
-              var endpoint = apiBaseUrl + 'user/' + username;
-
-              return $http.get(endpoint);
-
-                // var localItems = localStorage.getItem(name);
-                //
-                // if (localItems != null) {
-                //     var items = JSON.parse(localItems);
-                //
-                //     if (!items) {
-                //         localStorage.removeItem(name);
-                //
-                //         items = [];
-                //     }
-                //
-                //     return items;
-                // }
-                //
-                // return [];
+              return $http.get(apiBaseUrl + 'user/' + username);
             },
 
-            save: function(name, data) {
-                localStorage.removeItem(name);
-                localStorage.setItem(name, JSON.stringify(data));
+            save: function(data) {
+                return $http.post(apiBaseUrl + 'user', data)
+                  .then(function(response) {
+                    console.log('you saved it', data);
+                  });
             },
 
-            addItem: function(newItem, items, name) {
+            addItem: function(newItem, items, user) {
                 items.push(newItem);
 
-                this.save(name, items);
+                this.save(user);
             },
 
-            deleteItem: function(item, items, name) {
+            deleteItem: function(item, items, user) {
                 var index = items.indexOf(item);
 
                 items.splice(index, 1);
 
-                this.save(name, items);
+                this.save(user);
             }
         };
     }]);

@@ -2,17 +2,6 @@ angular.module('app', ['collectionHelpers'])
 
 angular.module('app')
 	.controller('mainController', ['$scope', '$http', 'SaveService', function($scope, $http, SaveService){
-
-			$scope.loadUser = function() {
-				SaveService.load()
-					.then(function(response) {
-						console.log(response);
-
-						var user = response.data;
-						console.log(user);
-					})
-			}
-
         $scope.signup = function(){
             $http({
                 method : 'POST',

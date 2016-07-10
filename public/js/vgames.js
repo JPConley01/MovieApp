@@ -4,7 +4,17 @@ angular.module("vgameList", ["collectionHelpers"])
 function vgameController($http, SaveService) {
     var vgame = this;
 
-    vgame.items = SaveService.load("vgames");
+    vgames.user = {};
+    vgames.items = [];
+
+    vgames.init = function() {
+        SaveService.load()
+            .then(function(response) {
+                vgames.user = response.data;
+
+                vgames.items = vgames.user.bcollection;
+            });
+    };
 
 
     vgame.getVgames = function(name) {
@@ -18,10 +28,10 @@ function vgameController($http, SaveService) {
             })[0];
 
             $http.get("http://bgg-wrapper.azurewebsites.net/api/thing?id=" + result.Id)
-              .then(function(response){
-                vgame.newVgame = response.data;
-                console.log(vgame.newVgame);
-              });
+                .then(function(response) {
+                    vgame.newVgame = response.data;
+                    console.log(vgame.newVgame);
+                });
 
         });
     };
@@ -31,7 +41,7 @@ function vgameController($http, SaveService) {
     };
 
     vgame.save = function() {
-        SaveService.save("vgames", vgame.items);
+        SaveService.save(vgame.user);
     };
 
     vgame.addItem = function(newVgame) {

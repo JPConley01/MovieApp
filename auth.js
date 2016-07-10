@@ -205,17 +205,17 @@ app.post('/user', app.isAuthenticated, function(req, res) {
   user.save(function(err, savedData) {
     if(err) {
       return User.create(user, function(error, created) {
-        console.log('new record created, ', created);
+        // console.log('new record created, ', created);
       });
     }
-    return console.log('record saved', savedData);
+    // return console.log('record saved', savedData);
   });
 });
 
 app.get('/user/:name', app.isAuthenticated, function(req, res) {
-  console.log(req.params.name);
+  // console.log(req.params.name);
   User.findOne({username: req.params.name}, function(err, user) {
-    console.log(user);
+    // console.log(user);
     res.json(user);
   });
 });

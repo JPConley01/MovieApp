@@ -4,8 +4,17 @@ angular.module("bgameList", ["collectionHelpers"])
 function bgameController($http, SaveService) {
     var bgames = this;
 
-    bgames.items = SaveService.load("bgames");
+    bgames.user = {};
+    bgames.items = [];
+    
+    bgames.init = function() {
+      SaveService.load()
+        .then(function(response) {
+            bgames.user = response.data;
 
+            bgames.items = bgames.user.bcollection;
+        });
+    };
 
     bgames.getBgames = function(name) {
         console.log("here");
@@ -27,21 +36,21 @@ function bgameController($http, SaveService) {
     };
 
     bgames.itemCreate = function(data) {
-      
+
 
     };
 
     bgames.save = function() {
-        SaveService.save("bgames", bgames.items);
+        SaveService.save(bgames.user);
     };
 
     bgames.addItem = function(newBgame) {
-        SaveService.addItem(newBgame, bgames.items, "bgames");
+        SaveService.addItem(newBgame, bgames.items, bgames.user);
 
     };
 
     bgames.deleteItem = function(item) {
-        SaveService.deleteItem(item, bgames.items, "bgames");
+        SaveService.deleteItem(item, bgames.items, bgames.user);
     };
 
 }

@@ -29,10 +29,21 @@ function movieController($http, SaveService) {
     };
     movie.dummyKeys = Object.keys(movie.dummy);
     // console.log(localStorage);
-    movie.items = SaveService.load("items");
+    movie.user = {};
+    movie.items = [];
+
+    movie.init = function() {
+      SaveService.load()
+        .then(function(response) {
+            movie.user = response.data;
+
+            movie.items = movie.user.bcollection;
+        });
+    };
+
 
     movie.save = function() {
-      SaveService.save("items", movie.items);
+      SaveService.save(movie.user);
     };
 
     movie.itemCreate = function(data) {
@@ -52,11 +63,11 @@ function movieController($http, SaveService) {
 
 
     movie.addItem = function(newMovie) {
-      SaveService.addItem(newMovie, movie.items, "items");
+      SaveService.addItem(newMovie, movie.items, movie.user);
     };
 
     movie.deleteItem = function(item) {
-      SaveService.deleteItem(item, movie.items, "items");
+      SaveService.deleteItem(item, movie.items, movie.user);
     };
 
 }

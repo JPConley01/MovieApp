@@ -18,7 +18,7 @@
         <title>My Movie Collection</title>
     </head>
 
-    <body id="movie-background" class="container" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;" ng-controller="movieController as movie">
+    <body id="movie-background" class="container" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;" ng-controller="movieController as movie" ng-init="movie.init()">
         <h1 class="jumbotron text-center">My Awesome Movie Collection</h1>
         <ul class="nav nav-tabs">
             <li role="presentation" class="dropdown">
