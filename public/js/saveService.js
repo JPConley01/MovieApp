@@ -5,6 +5,7 @@ angular.module("collectionHelpers", [])
         return {
             load: function() {
               var username = localStorage.getItem('currentUser');
+              console.log(username);
 
               var endpoint = apiBaseUrl + 'user/' + username;
 
