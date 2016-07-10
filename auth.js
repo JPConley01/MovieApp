@@ -212,7 +212,7 @@ app.post('/user', app.isAuthenticated, function(req, res) {
   });
 });
 
-app.get('/user', app.isAuthenticated, function(req, res) {
+app.get('/user/:name', app.isAuthenticated, function(req, res) {
   console.log(req.params.name);
   User.findOne({username: req.params.name}, function(err, user) {
     console.log(user);
