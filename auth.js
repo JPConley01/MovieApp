@@ -216,6 +216,10 @@ app.get('/user/:name', app.isAuthenticated, function(req, res) {
   // console.log(req.params.name);
   User.findOne({username: req.params.name}, function(err, user) {
     // console.log(user);
+    if(err) {
+      console.log('failed to find');
+      res.render('/');
+    }
     res.json(user);
   });
 });
