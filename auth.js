@@ -221,7 +221,7 @@ app.get('/user', app.isAuthenticated, function(req, res) {
 
 // Stupid simple err catcher
 app.use(function(req, res){
-    res.send({err : 'Something bad happened'});
+    res.send({err : res.error});
 });
 
 app.listen(process.env.PORT || 80);
