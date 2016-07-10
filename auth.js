@@ -14,7 +14,7 @@ var options = {
 var session = require('express-session');
 app.sessionMiddleware = session({
   secret: 'keyboard cat',
-  // resave: false,
+  resave: false,
   saveUninitialized: true,
 });
 app.use(app.sessionMiddleware);
