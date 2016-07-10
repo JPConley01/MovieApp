@@ -192,6 +192,31 @@ app.get('/api/me', app.isAuthenticatedAjax, function(req, res){
     res.send({user:req.user});
 });
 
+app.post('/user', app.isAuthenticated, function(req, res) {
+  var user = new User({
+    username: req.body.username,
+    password: req.body.password,
+    mcollection: req.body.mcollection,
+    vcollection: req.body.vcollection,
+    bcollection: req.body.bcollection
+  });
+
+  user.save(function(err, savedData) {
+    if(err) {
+      return User.create(user, function(error, created) {
+        console.log('new record created, ', created);
+      });
+    }
+    return console.log('record saved', savedData);
+  });
+});
+
+app.get('/user/:name', app.isAuthenticated, function(req, res) {
+  User.findOne({username: req.params.name}, function(err, user) {
+    return user;
+  });
+});
+
 // Stupid simple err catcher
 app.use(function(req, res){
     res.send({err : 'Something bad happened'});

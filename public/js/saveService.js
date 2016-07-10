@@ -1,22 +1,36 @@
 angular.module("collectionHelpers", [])
-    .factory("SaveService", [function() {
+    .factory("SaveService", ['$http', function($http) {
+      var apiBaseUrl = 'https://allthethings.site/html/';
+
         return {
-            load: function(name) {
-                var localItems = localStorage.getItem(name);
+            load: function() {
+              var username = localStorage.getItem('currentUser');
 
-                if (localItems != null) {
-                    var items = JSON.parse(localItems);
+              var endpoint = apiBaseUrl + 'user/' + username;
 
-                    if (!items) {
-                        localStorage.removeItem(name);
+              $http.get(endpoint)
+                .then(function(response) {
+                  console.log(response);
 
-                        items = [];
-                    }
+                  var user = response.data;
+                  console.log(user);
+                });
 
-                    return items;
-                }
-
-                return [];
+                // var localItems = localStorage.getItem(name);
+                //
+                // if (localItems != null) {
+                //     var items = JSON.parse(localItems);
+                //
+                //     if (!items) {
+                //         localStorage.removeItem(name);
+                //
+                //         items = [];
+                //     }
+                //
+                //     return items;
+                // }
+                //
+                // return [];
             },
 
             save: function(name, data) {

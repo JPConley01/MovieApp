@@ -15,6 +15,8 @@ angular.module('app')
         }
 
         $scope.login = function(){
+					localStorage.setItem('currentUser', $scope.loginForm.username);
+
             $http({
                 method : 'POST',
                 url    : '/login',
