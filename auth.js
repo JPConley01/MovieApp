@@ -36,9 +36,9 @@ mongoose.connect('mongodb://localhost/user');
 var userSchema = mongoose.Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    mcollection: { type: [Object]},
-    vcollection: { type: [Object]},
-    bcollection: { type: [Object]}
+    mcollection: { type: []},
+    vcollection: { type: []},
+    bcollection: { type: []}
 });
 var User = mongoose.model('user', userSchema);
 /** End database setup **/
