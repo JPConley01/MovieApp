@@ -53,7 +53,7 @@ function movieController($http, SaveService) {
     movie.getMovie = function(title) {
         $http({
             method: "GET",
-            url: "http://www.omdbapi.com/?t=" + title + "&y=&plot=short&r=json"
+            url: "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&r=json"
         }).then(function(response) {
             console.log('getMovie result: ', response.data);
 

@@ -4,15 +4,15 @@ angular.module("vgameList", ["collectionHelpers"])
 function vgameController($http, SaveService) {
     var vgame = this;
 
-    vgames.user = {};
-    vgames.items = [];
+    vgame.user = {};
+    vgame.items = [];
 
-    vgames.init = function() {
+    vgame.init = function() {
         SaveService.load()
             .then(function(response) {
-                vgames.user = response.data;
+                vgame.user = response.data;
 
-                vgames.items = vgames.user.bcollection;
+                vgame.items = vgames.user.bcollection;
             });
     };
 
@@ -45,11 +45,11 @@ function vgameController($http, SaveService) {
     };
 
     vgame.addItem = function(newVgame) {
-        SaveService.addItem(newVgame, vgame.items, "vgames");
+        SaveService.addItem(newVgame, vgame.items, vgame.user);
     };
 
     vgame.deleteItem = function(item) {
-        SaveService.deleteItem(item, vgame.items, "vgames");
+        SaveService.deleteItem(item, vgame.items, vgame.user);
     };
 
 
