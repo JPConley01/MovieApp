@@ -25,11 +25,12 @@ angular.module('app')
         }
 
         $scope.login = function(){
+					console.log($scope.loginForm.username);
 					localStorage.setItem('currentUser', $scope.loginForm.username);
 
             $http({
                 method : 'POST',
-                url    : 'https://allthethings.site/' + 'login',
+                url    : '/login',
                 data   : $scope.loginForm
             }).then(function(returnData){
 							console.log("Return Data", returnData);
