@@ -1,5 +1,5 @@
 angular.module("movieList", ["collectionHelpers"])
-    .controller("movieController", ["$http","SaveService", movieController]);
+    .controller("movieController", ["$http", "SaveService", movieController]);
 
 function movieController($http, SaveService) {
     var movie = this;
@@ -33,20 +33,20 @@ function movieController($http, SaveService) {
     movie.items = [];
 
     movie.init = function() {
-      SaveService.load()
-        .then(function(response) {
-          console.log(response);
-            movie.user = response.data;
+        SaveService.load()
+            .then(function(response) {
+                // console.log(response);
+                movie.user = response.data;
 
-            console.log(movie.user);
+                // console.log(movie.user);
 
-            movie.items = movie.user.mcollection;
-        });
+                movie.items = movie.user.mcollection;
+            });
     };
 
 
     movie.save = function() {
-      SaveService.save(movie.user);
+        SaveService.save(movie.user);
     };
 
     movie.itemCreate = function(data) {
@@ -66,14 +66,14 @@ function movieController($http, SaveService) {
 
 
     movie.addItem = function(newMovie) {
-      console.log(movie.items);
-      console.log(movie.user.mcollection);
+        // console.log(movie.items);
+        // console.log(movie.user.mcollection);
 
-      SaveService.addItem(newMovie, movie.items, movie.user);
+        SaveService.addItem(newMovie, movie.items, movie.user);
     };
 
     movie.deleteItem = function(item) {
-      SaveService.deleteItem(item, movie.items, movie.user);
+        SaveService.deleteItem(item, movie.items, movie.user);
     };
 
 }

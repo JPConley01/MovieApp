@@ -192,7 +192,7 @@ app.get('/api/me', app.isAuthenticatedAjax, function(req, res){
     res.send({user:req.user});
 });
 
-app.post('/user', app.isAuthenticated, function(req, res) {
+app.put('/user', app.isAuthenticated, function(req, res) {
   User.findById(req.body._id, function(err, user) {
     // TODO: possibly auto-map this (i.e. Object.keys(user).blahblahblahblah)
     user.username = req.body.username;
@@ -202,8 +202,8 @@ app.post('/user', app.isAuthenticated, function(req, res) {
     user.bcollection = req.body.bcollection;
 
     user.save(function(err, savedData) {
-      if(err) res.json({ error: 'error when saving' });
-      res.json({status: 200});
+      if(err) res.json({ error: 'error when saving user ' + req.body.username });
+      res.json({status: 202});
     });
   });
 });
@@ -213,7 +213,7 @@ app.get('/user/:name', app.isAuthenticated, function(req, res) {
   User.findOne({username: req.params.name}, function(err, user) {
     // console.log(user);
     if(err) {
-      console.log('failed to find');
+      console.log('failed to find user: ' + req.params.name);
       res.render('/');
     }
     res.json(user);

@@ -6,14 +6,14 @@ function bgameController($http, SaveService) {
 
     bgames.user = {};
     bgames.items = [];
-    
-    bgames.init = function() {
-      SaveService.load()
-        .then(function(response) {
-            bgames.user = response.data;
 
-            bgames.items = bgames.user.bcollection;
-        });
+    bgames.init = function() {
+        SaveService.load()
+            .then(function(response) {
+                bgames.user = response.data;
+
+                bgames.items = bgames.user.bcollection;
+            });
     };
 
     bgames.getBgames = function(name) {

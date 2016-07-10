@@ -1,19 +1,19 @@
 angular.module("collectionHelpers", [])
     .factory("SaveService", ['$http', function($http) {
-      var apiBaseUrl = 'https://allthethings.site/';
+        var apiBaseUrl = 'https://allthethings.site/';
 
         return {
             load: function() {
-              var username = localStorage.getItem('currentUser');
+                var username = localStorage.getItem('currentUser');
 
-              return $http.get(apiBaseUrl + 'user/' + username);
+                return $http.get(apiBaseUrl + 'user/' + username);
             },
 
             save: function(data) {
-                return $http.post(apiBaseUrl + 'user', data)
-                  .then(function(response) {
-                    console.log('you saved it', data);
-                  });
+                return $http.put(apiBaseUrl + 'user', data)
+                    .then(function(response) {
+                        // console.log('you saved this user', data);
+                    });
             },
 
             addItem: function(newItem, items, user) {
