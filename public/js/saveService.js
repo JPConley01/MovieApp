@@ -1,6 +1,6 @@
 angular.module("collectionHelpers", [])
     .factory("SaveService", ['$http', function($http) {
-      var apiBaseUrl = 'https://allthethings.site/html/';
+      var apiBaseUrl = 'https://allthethings.site/';
 
         return {
             load: function() {

@@ -29,7 +29,7 @@ angular.module('app')
 
             $http({
                 method : 'POST',
-                url    : 'https://allthethings.site/html/' + 'login',
+                url    : 'https://allthethings.site/' + 'login',
                 data   : $scope.loginForm
             }).then(function(returnData){
 							console.log("Return Data", returnData);
