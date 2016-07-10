@@ -66,6 +66,9 @@ function movieController($http, SaveService) {
 
 
     movie.addItem = function(newMovie) {
+      console.log(movie.items);
+      console.log(movie.user.mcollection);
+
       SaveService.addItem(newMovie, movie.items, movie.user);
     };
 
