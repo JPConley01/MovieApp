@@ -14,7 +14,7 @@ var options = {
 var session = require('express-session');
 app.sessionMiddleware = session({
   secret: 'keyboard cat',
-  resave: false,
+  // resave: false,
   saveUninitialized: true,
 });
 app.use(app.sessionMiddleware);
@@ -89,6 +89,7 @@ passport.use(new LocalStrategy(
 /** Middleware **/
 app.isAuthenticated = function(req, res, next){
     // If the current user is logged in...
+    console.log(req);
     if(req.isAuthenticated()){
     // Middleware allows the execution chain to continue.
         return next();
