@@ -55,7 +55,7 @@
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="bgames.addItem(bgames.newBgame)">Add Game</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="bgame.addItem(bgame.newBgame)">Add Game</button>
                   </div>
               </div>
           </div>
@@ -63,7 +63,7 @@
       <table class="table table-striped">
           <thead></thead>
           <tbody>
-              <tr ng-repeat="item in bgames.items | orderBy:bgames.sortType track by $index">
+              <tr ng-repeat="item in bgame.items | orderBy:bgames.sortType track by $index">
                   <td>
                     <img ng-src="{{item.Image}}" height="150px">
                   </td>
