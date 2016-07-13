@@ -17,7 +17,6 @@ function bgameController($http, SaveService) {
 };
 
   bgames.dummyKeys = Object.keys(bgames.dummy);
-
     bgames.user = {};
     bgames.items = [];
 
