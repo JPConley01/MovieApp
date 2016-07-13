@@ -4,6 +4,19 @@ angular.module("vgameList", ["collectionHelpers"])
 function vgameController($http, SaveService) {
     var vgame = this;
 
+    vgame.sortType = '';
+    vgame.newVgame = {};
+    vgame.dummy = {
+      Description:0,
+      Type:0,
+      Id: 0,
+      Name: {
+      Type:0,
+      Value: 0
+    }
+};
+
+  vgame.dummyKeys = Object.keys(vgame.dummy);
     vgame.user = {};
     vgame.items = [];
 

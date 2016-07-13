@@ -4,6 +4,20 @@ angular.module("bgameList", ["collectionHelpers"])
 function bgameController($http, SaveService) {
     var bgames = this;
 
+    bgames.sortType = '';
+    bgames.newVgame = {};
+    bgames.dummy = {
+      Description:0,
+      Type:0,
+      Id: 0,
+      Name: {
+      Type:0,
+      Value: 0
+    }
+};
+
+  bgames.dummyKeys = Object.keys(bgames.dummy);
+
     bgames.user = {};
     bgames.items = [];
 

@@ -37,6 +37,10 @@
         <input id="newbgameTitle" type="text" ng-model="bgame.newBgame.name" size="30" placeholder="Name" autofocus autocomplete="off"/>
         <button id="submitButton" type="submit" ng-click="bgame.getBgames(bgame.newBgame.name); " name="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Submit</button>
       </form>
+      <label>Sort by:</label>
+      <select ng-model="movie.sortType">
+          <option ng-repeat="key in movie.dummyKeys" value="{{key}}">{{key}}</option>
+      </select>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
