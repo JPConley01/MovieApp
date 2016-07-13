@@ -7074,3 +7074,11 @@ tbody > tr > td {
   background-repeat: repeat;
   min-height: 100vh;
 }
+
+#truncate {
+    white-space: nowrap;;
+    width: 12em;
+    overflow: hidden !important;
+    text-overflow: clip ellipsis !important;
+    border: 1px solid #000000
+}
