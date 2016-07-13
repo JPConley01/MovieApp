@@ -7077,8 +7077,8 @@ tbody > tr > td {
 
 #truncate {
     white-space: nowrap;;
-    width: 12em;
+    width: 90%;
     overflow: hidden !important;
-    text-overflow: clip ellipsis !important;
+    text-overflow: ellipsis !important;
     border: 1px solid #000000
 }
