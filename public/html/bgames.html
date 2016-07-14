@@ -39,7 +39,7 @@
       </form>
       <label>Sort by:</label>
       <select ng-model="bgames.sortType">
-          <option ng-repeat="key in bgames.dummyKeys" value="{{key}}">{{key}}</option>
+          <option ng-repeat="key in bgame.dummyKeys" value="{{key}}">{{key}}</option>
       </select>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -63,7 +63,7 @@
       <table class="table table-striped">
           <thead></thead>
           <tbody>
-              <tr ng-repeat="item in bgame.items | orderBy:bgames.sortType track by $index">
+              <tr ng-repeat="item in bgame.items | orderBy:bgame.sortType track by $index">
                   <td>
                     <img ng-src="{{item.Image}}" height="150px">
                   </td>
