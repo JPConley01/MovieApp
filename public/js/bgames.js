@@ -5,7 +5,7 @@ function bgameController($http, SaveService) {
     var bgames = this;
 
     bgames.sortType = '';
-    bgames.newVgame = {};
+    bgames.newBgame = {};
     bgames.dummy = {
       Description:0,
       Type:0,
