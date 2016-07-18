@@ -128,10 +128,10 @@ app.isAuthenticatedAjax = function(req, res, next){
 
 app.get('/', function(req, res){
     console.log('session?', req.session);
-    if ( req.session.views === undefined ) { req.session.views = 0}
-    else { req.session.views++}
+    if ( req.session.views === undefined ) {req.session.views = 0}
+    else {req.session.views++}
     res.sendFile('/html/login.html', {root: './public'});
-} )
+} );
 
 
 
