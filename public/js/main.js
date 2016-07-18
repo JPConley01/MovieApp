@@ -4,7 +4,7 @@ angular.module('app')
     .controller('mainController', ['$scope', '$http', 'SaveService', function($scope, $http, SaveService) {
         $scope.signup = function() {
             localStorage.setItem('currentUser', $scope.loginForm.username);
-						
+
             $http({
                 method: 'POST',
                 url: '/signup',
@@ -34,5 +34,12 @@ angular.module('app')
                 }
             })
         }
+
+        if (window.location.port === "") {
+   if (window.location.protocol == "http:") {
+      var restOfUrl = window.location.href.substr(5);
+      window.location = "https:" + restOfUrl;
+   }
+}
 
     }])

@@ -5,11 +5,12 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 var https = require('https');
 var fs = require('fs');
-var options = {
+if (port === 80){
+  var options = {
    key  : fs.readFileSync('/etc/letsencrypt/live/allthethings.site/privkey.pem'),
    cert : fs.readFileSync('/etc/letsencrypt/live/allthethings.site/cert.pem')
 };
-
+}
 /** Express Session Setup **/
 
 var session = require('express-session');
@@ -228,6 +229,8 @@ app.use(function(req, res){
 
 app.listen(process.env.PORT || 80);
 
-https.createServer(options, app).listen(443, function () {
+if (port === 80){
+   https.createServer(options, app).listen(443, function () {
    console.log('Started!');
 });
+}
