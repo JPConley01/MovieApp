@@ -230,6 +230,3 @@ app.listen(process.env.PORT || 80);
 https.createServer(options, app).listen(443, function () {
    console.log('Started!');
 });
-
-if (window.location.protocol != "https:")
-    window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
