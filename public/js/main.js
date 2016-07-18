@@ -1,4 +1,4 @@
-angular.module('app', ['collectionHelpers'])
+angular.module('app', ['collectionHelpers']);
 
 angular.module('app')
     .controller('mainController', ['$scope', '$http', 'SaveService', function($scope, $http, SaveService) {
@@ -12,10 +12,10 @@ angular.module('app')
             }).then(function(returnData) {
                 // console.log(returnData)
                 if (returnData.data.success) {
-                    window.location.href = "/movies"
+                    window.location.href = "/movies";
                 }
-            })
-        }
+            });
+        };
 
         $scope.login = function() {
             localStorage.setItem('currentUser', $scope.loginForm.username);
@@ -28,18 +28,11 @@ angular.module('app')
                 // console.log("Return Data", returnData);
                 if (returnData.data.success) {
                     console.log("Here success");
-                    window.location.href = "/movies"
+                    window.location.href = "/movies";
                 } else {
-                    console.log(returnData)
+                    console.log(returnData);
                 }
-            })
-        }
+            });
+        };
 
-        if (window.location.port === "") {
-   if (window.location.protocol == "http:") {
-      var restOfUrl = window.location.href.substr(5);
-      window.location = "https:" + restOfUrl;
-   }
-}
-
-    }])
+    }]);
