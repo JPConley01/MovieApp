@@ -1,5 +1,10 @@
 var express = require('express');
+var selfSignedHttps = require('self-signed-https');
+var forceSsl = require('force-ssl');
 var app = express();
+app.listen(80); // http on port 80 
+selfSignedHttps(app).listen(443); // https on port 443
+app.use(forceSsl);
 
 app.use(express.static(__dirname + '/public'));
 var https = require('https');
