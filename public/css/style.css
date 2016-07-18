@@ -7088,3 +7088,7 @@ tbody > tr > td {
     width:auto;
     white-space: normal;
 }
+
+.resize {
+    font-size: 2rem;
+}
