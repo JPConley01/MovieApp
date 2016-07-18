@@ -1,7 +1,5 @@
 var express = require('express');
-var secure = require('express-force-https');
 var app = express();
-app.use(secure);
 app.use(express.static(__dirname + '/public'));
 var https = require('https');
 var fs = require('fs');
