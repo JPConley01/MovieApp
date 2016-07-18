@@ -80,7 +80,7 @@ small {
 }
 sub,
 sup {
-  font-size: 75%;
+  font-size: 2rem;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
@@ -4852,7 +4852,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   font-family: 'Roboto', sans-serif;
   display: inline;
   padding: .2em .6em .3em;
-  font-size: 75%;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 1;
   color: #ffffff;

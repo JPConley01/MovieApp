@@ -68,8 +68,8 @@
                     <td><img ng-src="http://img.omdbapi.com/?apikey=eba8f302&i={{item.imdbID}}" height="150px"></td>
                     <td>
                         <p>
-                            <b>{{item.Title}}</b>
-                            <span class="sub">
+                            <b class="resize">{{item.Title}}</b>
+                            <span class="class="resize"">
                                 <b>({{item.Released}})</b>
                                 Metascore:
                                 <span class="label label-warning">{{item.Metascore}}</span>
@@ -78,7 +78,7 @@
                             </span>
                         </p>
                         <p>
-                            <b>Rated:
+                            <b class="resize">Rated:
                                 {{item.Rated}}</b>
                             |
                             <span class="sub">Runtime:
