@@ -2,6 +2,8 @@ angular.module('app', ['collectionHelpers']);
 
 angular.module('app')
     .controller('mainController', ['$scope', '$http', 'SaveService', function($scope, $http, SaveService) {
+      $scope.loginForm = {};
+      $scope.signupForm = {};
         $scope.signup = function() {
             localStorage.setItem('currentUser', $scope.loginForm.username);
 
