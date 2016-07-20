@@ -7092,3 +7092,12 @@ tbody > tr > td {
 .resize {
     font-size: 2rem;
 }
+
+select.form-control{
+  width: 200px;
+  margin: 10px 0;
+}
+
+form.form-inline{
+  margin: 10px 0;
+}
