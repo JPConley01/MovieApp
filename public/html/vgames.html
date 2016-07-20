@@ -33,13 +33,13 @@
               </ul>
           </li>
       </ul>
-      <form>
+      <form class="form-inline">
         <label id="rows">Add video games here:</label>
-        <input id="newVgameTitle" type="text" ng-model="vgame.newVgame.name" size="30" placeholder="Name" autofocus autocomplete="off"/>
+        <input class="form-control" id="newVgameTitle" type="text" ng-model="vgame.newVgame.name" size="30" placeholder="Name" autofocus autocomplete="off"/>
         <button id="submitButton" type="submit" ng-click="vgame.getVgames(vgame.newVgame.name); " name="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Submit</button>
       </form>
       <label>Sort by:</label>
-      <select form-control ng-model="vgame.sortType">
+      <select class="form-control" ng-model="vgame.sortType">
           <option ng-repeat="key in vgame.dummyKeys" value="{{key}}">{{key}}</option>
       </select>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
