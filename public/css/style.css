@@ -18,7 +18,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  margin: 10px;
+  margin: 0;
+  margin-bottom: 10px;
+
 }
 article,
 aside,
